@@ -21,3 +21,9 @@ npm-debug.log*
 # Optional: if you want to exclude the copy file
 work copy.html
 
+# SSH keys (should never be committed!)
+hello
+hello.pub
+*.pem
+*.key
+

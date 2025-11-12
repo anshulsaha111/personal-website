@@ -130,8 +130,12 @@ class ChatWidget {
     this.showTypingIndicator();
 
     try {
+      // Determine API endpoint (works locally and on Vercel)
+      const isLocalhost = window.location.hostname === 'localhost' || window.location.hostname === '127.0.0.1';
+      const apiEndpoint = isLocalhost ? 'http://localhost:3001/api/chat' : '/api/chat';
+      
       // Call backend proxy
-      const response = await fetch('http://localhost:3001/api/chat', {
+      const response = await fetch(apiEndpoint, {
         method: 'POST',
         headers: {
           'Content-Type': 'application/json',
