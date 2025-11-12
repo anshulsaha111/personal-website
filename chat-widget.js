@@ -1,5 +1,6 @@
 // Chat Widget JavaScript
 // Handles UI interactions and API calls
+// Version: 2024-11-12-v2 (Vercel Serverless)
 
 class ChatWidget {
   constructor() {
@@ -133,6 +134,12 @@ class ChatWidget {
       // Determine API endpoint (works locally and on Vercel)
       const isLocalhost = window.location.hostname === 'localhost' || window.location.hostname === '127.0.0.1';
       const apiEndpoint = isLocalhost ? 'http://localhost:3001/api/chat' : '/api/chat';
+      
+      console.log('🔍 Chat Debug:', {
+        hostname: window.location.hostname,
+        isLocalhost: isLocalhost,
+        apiEndpoint: apiEndpoint
+      });
       
       // Call backend proxy
       const response = await fetch(apiEndpoint, {
