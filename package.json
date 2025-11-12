@@ -1,0 +1,19 @@
+{
+  "name": "vibe-site-chat",
+  "version": "1.0.0",
+  "description": "Chat widget backend proxy for portfolio site",
+  "main": "chat-proxy.js",
+  "scripts": {
+    "start": "node chat-proxy.js",
+    "dev": "nodemon chat-proxy.js"
+  },
+  "dependencies": {
+    "express": "^4.18.2",
+    "cors": "^2.8.5",
+    "dotenv": "^16.4.5"
+  },
+  "devDependencies": {
+    "nodemon": "^3.0.1"
+  }
+}
+

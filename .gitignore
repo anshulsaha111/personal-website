@@ -1,0 +1,23 @@
+# Node modules
+node_modules/
+
+# Environment variables (contains API keys - NEVER commit!)
+.env
+
+# System files
+.DS_Store
+Thumbs.db
+
+# Editor files
+.vscode/
+.idea/
+*.swp
+*.swo
+
+# Logs
+*.log
+npm-debug.log*
+
+# Optional: if you want to exclude the copy file
+work copy.html
+

@@ -1,0 +1,465 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>work experience | anshul</title>
+    <link
+      href="https://fonts.googleapis.com/css2?family=Share+Tech+Mono&family=Inter:wght@400;500;600&display=swap"
+      rel="stylesheet"
+    />
+    <link rel="icon" href="data:," />
+    <style>
+      * {
+        margin: 0;
+        padding: 0;
+        box-sizing: border-box;
+        text-transform: lowercase;
+      }
+
+      body {
+        font-family: "Inter", sans-serif;
+        background: radial-gradient(circle at center, #0d0017, #06000c);
+        min-height: 100vh;
+        padding: 60px 20px 100px;
+        overflow-x: hidden;
+        color: #d9d3ff;
+        line-height: 1.75;
+      }
+
+      /* Back link */
+      .back-link {
+        position: fixed;
+        top: 3%;
+        left: 5%;
+        font-size: 18px;
+        text-decoration: none;
+        color: #d9d3ff;
+        transition: all 0.3s ease;
+        z-index: 100;
+      }
+
+      .back-link:hover {
+        color: #b991ff;
+        transform: translateX(-5px);
+      }
+
+      /* Main heading */
+      h1 {
+        font-family: "Share Tech Mono", monospace;
+        text-align: center;
+        font-size: 48px;
+        color: #f0e8ff;
+        margin-bottom: 80px;
+        margin-top: 40px;
+        text-shadow: 0 0 25px rgba(160, 94, 255, 0.7);
+      }
+
+      /* Timeline container */
+      .timeline {
+        max-width: 900px;
+        margin: 0 auto;
+        position: relative;
+        padding-left: 60px;
+      }
+
+      /* Vertical line */
+      .timeline::before {
+        content: "";
+        position: absolute;
+        left: 20px;
+        top: 0;
+        bottom: 0;
+        width: 2px;
+        background: linear-gradient(
+          to bottom,
+          transparent,
+          rgba(160, 94, 255, 0.3) 10%,
+          rgba(160, 94, 255, 0.3) 90%,
+          transparent
+        );
+      }
+
+      /* Timeline item */
+      .timeline-item {
+        position: relative;
+        margin-bottom: 70px;
+        opacity: 0;
+        transform: translateY(30px);
+        transition: all 0.6s ease;
+      }
+
+      .timeline-item.visible {
+        opacity: 1;
+        transform: translateY(0);
+      }
+
+      /* Glowing node */
+      .timeline-item::before {
+        content: "";
+        position: absolute;
+        left: -48px;
+        top: 8px;
+        width: 16px;
+        height: 16px;
+        background: rgba(160, 94, 255, 0.7);
+        border-radius: 50%;
+        box-shadow: 0 0 12px rgba(160, 94, 255, 0.8);
+        animation: pulse-node 2s ease-in-out infinite;
+        z-index: 2;
+      }
+
+      @keyframes pulse-node {
+        0%,
+        100% {
+          transform: scale(1);
+          opacity: 1;
+        }
+        50% {
+          transform: scale(1.2);
+          opacity: 0.9;
+        }
+      }
+
+      /* Company name */
+      .company {
+        font-family: "Share Tech Mono", monospace;
+        font-size: 28px;
+        font-weight: 600;
+        margin-bottom: 8px;
+        color: #e8d5ff;
+      }
+
+      /* Role and date */
+      .role {
+        font-family: "Inter", sans-serif;
+        font-size: 18px;
+        color: #bfa8ff;
+        margin-bottom: 18px;
+        opacity: 0.85;
+      }
+
+      /* Section headings */
+      .section-title {
+        font-family: "Share Tech Mono", monospace;
+        font-size: 16px;
+        color: #b89dff;
+        margin-top: 18px;
+        margin-bottom: 10px;
+      }
+
+      /* Bullet points */
+      .timeline-item ul {
+        list-style: none;
+        padding-left: 0;
+      }
+
+      .timeline-item li {
+        font-family: "Inter", sans-serif;
+        margin-bottom: 10px;
+        padding-left: 20px;
+        position: relative;
+        line-height: 1.7;
+        font-size: 16px;
+        color: #d9d3ff;
+      }
+
+      .timeline-item li::before {
+        content: "•";
+        position: absolute;
+        left: 0;
+        color: #a05eff;
+        font-size: 20px;
+        opacity: 0.9;
+      }
+
+      /* Technologies */
+      .tech-list {
+        display: flex;
+        flex-wrap: wrap;
+        gap: 8px;
+        margin-top: 10px;
+      }
+
+      .tech-tag {
+        font-family: "Inter", sans-serif;
+        display: inline-block;
+        padding: 5px 12px;
+        background: rgba(160, 94, 255, 0.15);
+        border-radius: 8px;
+        font-size: 13px;
+        color: #e9dbff;
+        transition: all 0.3s ease;
+      }
+
+      .tech-tag:hover {
+        background: rgba(160, 94, 255, 0.3);
+      }
+
+      /* Responsive */
+      @media (max-width: 768px) {
+        body {
+          padding: 40px 15px 80px;
+        }
+
+        h1 {
+          font-size: 35px;
+          margin-bottom: 60px;
+        }
+
+        .timeline {
+          padding-left: 40px;
+        }
+
+        .timeline::before {
+          left: 10px;
+        }
+
+        .timeline-item::before {
+          left: 2px;
+          width: 12px;
+          height: 12px;
+        }
+
+        .company {
+          font-size: 22px;
+        }
+
+        .role {
+          font-size: 15px;
+        }
+
+        .timeline-item li {
+          font-size: 14px;
+        }
+
+        .back-link {
+          font-size: 16px;
+        }
+      }
+
+      /* Fade out bottom */
+      .timeline::after {
+        content: "";
+        position: absolute;
+        bottom: -50px;
+        left: 0;
+        right: 0;
+        height: 150px;
+        background: linear-gradient(to bottom, transparent, #030008);
+        pointer-events: none;
+      }
+    </style>
+  </head>
+
+  <body>
+    <a href="index.html" class="back-link">← back to home</a>
+
+    <h1>work experience</h1>
+
+    <div class="timeline">
+      <!-- Licious - Current Role -->
+      <div class="timeline-item">
+        <div class="company">licious</div>
+        <div class="role">ai/ml product manager · july 2025 – present</div>
+
+        <div class="section-title">what i did:</div>
+        <ul>
+          <li>
+            led development of an llm + rag sql query builder; reducing analyst effort by 8+ hours/week
+          </li>
+          <li>
+            built an llm-powered whatsapp vendor bidding bot; cut manual effort by 80%
+          </li>
+        </ul>
+
+        <div class="section-title">using:</div>
+        <div class="tech-list">
+          <span class="tech-tag">llms</span>
+          <span class="tech-tag">rag</span>
+          <span class="tech-tag">ai engineering</span>
+          <span class="tech-tag">prompt engineering</span>
+          <span class="tech-tag">prds</span>
+          <span class="tech-tag">gtm</span>
+          <span class="tech-tag">rca</span>
+          <span class="tech-tag">metrics definition</span>
+          <span class="tech-tag">stakeholder management</span>
+        </div>
+      </div>
+
+      <!-- Licious - Previous Role -->
+      <div class="timeline-item">
+        <div class="company">licious</div>
+        <div class="role">
+          data scientist & product analyst · july 2024 – june 2025
+        </div>
+
+        <div class="section-title">what i did:</div>
+        <ul>
+          <li>
+            designed and deployed a patent-pending end-to-end trip creation algorithm, eliminating manual ops
+          </li>
+          <li>
+            optimized last-mile delivery routing algorithm, increasing order delivery compliance by 12%
+          </li>
+          <li>
+            developed geo-spatial hub expansion model for a 30-minute delivery network
+          </li>
+        </ul>
+
+        <div class="section-title">using:</div>
+        <div class="tech-list">
+          <span class="tech-tag">python</span>
+          <span class="tech-tag">or-tools</span>
+          <span class="tech-tag">clustering</span>
+          <span class="tech-tag">pandas</span>
+          <span class="tech-tag">geospatial analysis</span>
+          <span class="tech-tag">scenario modeling</span>
+          <span class="tech-tag">process simulation</span>
+          <span class="tech-tag">data visualization</span>
+        </div>
+      </div>
+
+      <!-- Intugine -->
+      <div class="timeline-item">
+        <div class="company">intugine technologies</div>
+        <div class="role">product analyst · june 2023 – july 2024</div>
+
+        <div class="section-title">what i did:</div>
+        <ul>
+          <li>
+            improved on-time delivery by 10% for quick commerce clients by identifying operational bottlenecks
+          </li>
+          <li>
+            launched a cost-saving driver app mvp, replacing iot hardware and securing 4 enterprise clients
+          </li>
+          <li>
+            built a contract management mvp, leading ux research, product design, and strategic rollout
+          </li>
+        </ul>
+
+        <div class="section-title">using:</div>
+        <div class="tech-list">
+          <span class="tech-tag">sql</span>
+          <span class="tech-tag">python</span>
+          <span class="tech-tag">mvp design</span>
+          <span class="tech-tag">roadmapping</span>
+          <span class="tech-tag">ux research</span>
+          <span class="tech-tag">figma</span>
+        </div>
+      </div>
+
+      <!-- Titan Capital -->
+      <div class="timeline-item">
+        <div class="company">titan capital</div>
+        <div class="role">
+          investment analyst intern · june 2022 – apr 2023
+        </div>
+
+        <div class="section-title">what i did:</div>
+        <ul>
+          <li>
+            evaluated 250+ b2c startups through deal sourcing, competitive analysis, and financial modeling
+          </li>
+          <li>
+            developed 30+ competitive landscapes studies and authored investment theses
+          </li>
+        </ul>
+
+        <div class="section-title">using:</div>
+        <div class="tech-list">
+          <span class="tech-tag">financial modeling</span>
+          <span class="tech-tag">market research</span>
+          <span class="tech-tag">competitive analysis</span>
+          <span class="tech-tag">excel</span>
+          <span class="tech-tag">strategy</span>
+        </div>
+      </div>
+
+      <!-- PwC -->
+      <div class="timeline-item">
+        <div class="company">pwc india</div>
+        <div class="role">
+          technology consultant intern · may 2022 – jun 2022
+        </div>
+
+        <div class="section-title">what i did:</div>
+        <ul>
+          <li>
+            worked in the advisory unit on cloud computing, telecommunications, and edge data centers
+          </li>
+        </ul>
+
+        <div class="section-title">using:</div>
+        <div class="tech-list">
+          <span class="tech-tag">cloud</span>
+          <span class="tech-tag">network architecture</span>
+        </div>
+      </div>
+
+      <!-- Graphy -->
+      <div class="timeline-item">
+        <div class="company">graphy inc.</div>
+        <div class="role">product manager intern · mar 2022 – may 2022</div>
+
+        <div class="section-title">what i did:</div>
+        <ul>
+          <li>
+            contributed to creator-tech product feature design, user testing,
+            and roadmap strategy
+          </li>
+        </ul>
+
+        <div class="section-title">using:</div>
+        <div class="tech-list">
+          <span class="tech-tag">product management</span>
+          <span class="tech-tag">user research</span>
+          <span class="tech-tag">prototyping</span>
+          <span class="tech-tag">a/b testing</span>
+        </div>
+      </div>
+
+      <!-- Mozilla -->
+      <div class="timeline-item">
+        <div class="company">mozilla</div>
+        <div class="role">open source developer · mar 2021 – may 2021</div>
+
+        <div class="section-title">what i did:</div>
+        <ul>
+          <li>
+            fixed 10+ issues for the firefox desktop web app
+          </li>
+          <li>
+            added unit testing for multiple patches to increase coverage
+          </li>
+        </ul>
+
+        <div class="section-title">using:</div>
+        <div class="tech-list">
+          <span class="tech-tag">javascript</span>
+          <span class="tech-tag">unit testing</span>
+          <span class="tech-tag">django</span>
+          <span class="tech-tag">open source</span>
+        </div>
+      </div>
+    </div>
+
+    <script>
+      // Fade-in animation on scroll
+      const observerOptions = {
+        threshold: 0.1,
+        rootMargin: "0px 0px -50px 0px",
+      };
+
+      const observer = new IntersectionObserver((entries) => {
+        entries.forEach((entry) => {
+          if (entry.isIntersecting) entry.target.classList.add("visible");
+        });
+      }, observerOptions);
+
+      document.querySelectorAll(".timeline-item").forEach((item) => {
+        observer.observe(item);
+      });
+    </script>
+  </body>
+</html>

@@ -1,0 +1,201 @@
+* {
+    margin: 0;
+    padding: 0;
+    box-sizing: border-box;
+    font-family: "Share Tech Mono", monospace;
+    text-transform: lowercase;
+    color: white;
+  }
+  
+  body {
+    background: radial-gradient(circle at center, #12001b, #030008);
+    overflow: hidden;
+    height: 100vh;
+    width: 100vw;
+  }
+  
+  /* Header Container */
+  .header-container {
+    position: fixed;
+    top: 3%;
+    left: 5%;
+    z-index: 10;
+  }
+  
+  /* Header */
+  header {
+    font-size: 55px;
+    text-shadow: 0 0 25px #a05eff;
+    opacity: 1;
+    margin-bottom: 8px;
+  }
+  
+  /* Subtitle */
+  .subtitle {
+    font-size: 16px;
+    text-shadow: 0 0 15px #a05eff;
+    opacity: 0.5;
+    letter-spacing: 0.5px;
+    line-height: 1.4;
+  }
+  
+  .subtitle p {
+    margin: 0;
+    padding: 0;
+  }
+  
+  /* Model Canvas */
+  #model {
+    position: absolute;
+    top: 0;
+    left: 50%;
+    transform: translateX(-50%);
+    width: 100vw;
+    height: 100vh;
+    opacity: 1;
+  }
+  
+  /* Orb label that appears on hover */
+  .orb-label {
+    position: fixed;
+    padding: 8px 16px;
+    background: rgba(160, 94, 255, 0.2);
+    border: 1px solid #a05eff;
+    border-radius: 8px;
+    font-size: 18px;
+    color: white;
+    text-shadow: 0 0 10px #a05eff;
+    pointer-events: none;
+    opacity: 0;
+    transition: opacity 0.3s ease;
+    z-index: 1000;
+    backdrop-filter: blur(10px);
+  }
+  
+  .orb-label.visible {
+    opacity: 1;
+  }
+  
+  /* Footer */
+  footer {
+    position: fixed;
+    bottom: 3%;
+    left: 5%;
+    font-size: 30px;
+    text-shadow: 0 0 15px #a05eff;
+    opacity: 1;
+    display: flex;
+    align-items: center;
+    gap: 1.5rem;
+  }
+  
+  footer a {
+    text-decoration: none;
+    transition: all 0.2s ease;
+  }
+  
+  footer .footer-icon {
+    display: flex;
+    align-items: center;
+    justify-content: center;
+  }
+  
+  footer .footer-icon svg {
+    width: 28px;
+    height: 28px;
+    stroke: white;
+    transition: all 0.2s ease;
+  }
+  
+  footer .footer-icon:hover {
+    text-shadow: 0 0 25px #c493ff;
+    transform: translateY(-2px);
+  }
+  
+  footer .footer-icon:hover svg {
+    stroke: #c493ff;
+    filter: drop-shadow(0 0 8px #c493ff);
+  }
+  
+  
+  @keyframes fadeIn {
+    to {
+      opacity: 1;
+    }
+  }
+  
+  @keyframes pulse {
+    0% {
+      opacity: 0.6;
+    }
+    50% {
+      opacity: 1;
+    }
+    100% {
+      opacity: 0.6;
+    }
+  }
+  
+/* Responsive */
+@media (max-width: 768px) {
+  .header-container {
+    top: 2%;
+    left: 4%;
+    right: 4%;
+  }
+
+  header {
+    font-size: 32px;
+  }
+
+  .subtitle {
+    font-size: 11px;
+  }
+
+  footer {
+    font-size: 16px;
+    flex-wrap: wrap;
+    gap: 1rem;
+    left: 4%;
+    bottom: 2%;
+    max-width: 90%;
+  }
+
+  footer .footer-icon {
+    padding: 4px;
+  }
+
+  footer .footer-icon svg {
+    width: 24px;
+    height: 24px;
+  }
+
+  .orb-label {
+    font-size: 13px;
+    padding: 6px 12px;
+    max-width: 80vw;
+    text-align: center;
+  }
+}
+
+/* Extra small devices */
+@media (max-width: 480px) {
+  header {
+    font-size: 28px;
+  }
+
+  .subtitle {
+    font-size: 10px;
+  }
+
+  footer {
+    font-size: 14px;
+    gap: 0.8rem;
+  }
+
+  footer .footer-icon svg {
+    width: 22px;
+    height: 22px;
+  }
+}
+  
