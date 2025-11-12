@@ -1,6 +1,8 @@
 // Chat Widget JavaScript
 // Handles UI interactions and API calls
-// Version: 2024-11-12-v2 (Vercel Serverless)
+// Version: 2024-11-12-v3 (Vercel Serverless with Auto-Detection)
+
+console.log('✅ Chat Widget v3 Loaded - Vercel Serverless Enabled');
 
 class ChatWidget {
   constructor() {
