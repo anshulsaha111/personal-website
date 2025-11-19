@@ -297,31 +297,115 @@ footer .footer-icon:hover svg {
 
 /* Responsive */
 @media (max-width: 768px) {
+  body {
+    overflow-x: hidden;
+    overflow-y: auto;
+    height: auto;
+    min-height: 100vh;
+  }
+
   .header-container {
-    top: 2%;
+    top: 5%;
+    left: 5%;
+    right: 5%;
+    max-width: 90%;
+  }
+
+  header {
+    font-size: 36px;
+    line-height: 1.2;
+    word-break: break-word;
+  }
+
+  .subtitle {
+    font-size: 13px;
+    padding-left: 10px;
+    border-left-width: 2px;
+  }
+
+  .subtitle p {
+    line-height: 1.6;
+  }
+
+  /* Make 3D model more visible on mobile */
+  #model {
+    transform: translateX(-50%) scale(1.2);
+  }
+
+  footer {
+    font-size: 14px;
+    flex-wrap: wrap;
+    gap: 1rem;
+    left: 5%;
+    bottom: 5%;
+    right: 5%;
+    max-width: 85%;
+    z-index: 100;
+  }
+
+  footer .footer-icon {
+    padding: 8px;
+    min-width: 44px;
+    min-height: 44px;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+  }
+
+  footer .footer-icon svg {
+    width: 26px;
+    height: 26px;
+  }
+
+  .orb-label {
+    font-size: 14px;
+    padding: 8px 14px;
+    max-width: 85vw;
+    text-align: center;
+    left: 50% !important;
+    transform: translateX(-50%);
+  }
+
+  /* Boot sequence mobile */
+  .boot-sequence {
+    font-size: 12px;
+    padding: 15px;
+  }
+
+  /* Scanlines less intense on mobile */
+  .scanlines {
+    opacity: 0.3;
+  }
+}
+
+/* Extra small devices */
+@media (max-width: 480px) {
+  .header-container {
+    top: 8%;
     left: 4%;
     right: 4%;
   }
 
   header {
-    font-size: 32px;
+    font-size: 28px;
+    letter-spacing: 1px;
   }
 
   .subtitle {
-    font-size: 12px;
+    font-size: 11px;
+    padding-left: 8px;
+  }
+
+  #model {
+    transform: translateX(-50%) scale(1.4);
   }
 
   footer {
-    font-size: 16px;
-    flex-wrap: wrap;
-    gap: 1rem;
+    font-size: 12px;
+    gap: 0.8rem;
     left: 4%;
-    bottom: 2%;
-    max-width: 90%;
-  }
-
-  footer .footer-icon {
-    padding: 4px;
+    bottom: 8%;
+    right: 4%;
   }
 
   footer .footer-icon svg {
@@ -329,31 +413,30 @@ footer .footer-icon:hover svg {
     height: 24px;
   }
 
-  .orb-label {
-    font-size: 13px;
-    padding: 6px 12px;
-    max-width: 80vw;
-    text-align: center;
+  .boot-sequence {
+    font-size: 11px;
+    padding: 12px;
   }
 }
 
-/* Extra small devices */
-@media (max-width: 480px) {
+/* Landscape mobile */
+@media (max-width: 896px) and (orientation: landscape) {
+  .header-container {
+    top: 3%;
+    left: 3%;
+  }
+
   header {
-    font-size: 28px;
+    font-size: 24px;
   }
 
   .subtitle {
-    font-size: 11px;
+    font-size: 10px;
   }
 
   footer {
-    font-size: 14px;
-    gap: 0.8rem;
-  }
-
-  footer .footer-icon svg {
-    width: 22px;
-    height: 22px;
+    bottom: 3%;
+    left: 3%;
+    font-size: 12px;
   }
 }

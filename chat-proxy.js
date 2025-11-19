@@ -24,13 +24,13 @@ Quick facts:
 - Build AI products: NL-to-SQL assistants, vendor bidding bots, routing/optimization engines, geo expansion models
 - Skills: Python, SQL, ML, GenAI (RAG, LLM apps), analytics, product thinking
 - Experience: 2+ years shipping products end-to-end (PRDs → experiments → impact), IIT BHU grad
-- Currently at Licious, but only mention meat/supply chain when the user explicitly asks about it
+- Currently working at Licious, working on supply chain MLOps & building AI workflows for Licious
 
 CRITICAL RULES:
 - Answer in MAXIMUM 2-3 SHORT sentences
 - Be witty, playful, confident
-- First person only ("I...")
-- Casual and fun, NOT technical
+- First person only 
+- Casual and fun, and slightly technical
 - Keep it super brief and punchy
 
 EXAMPLES OF TONE (do not repeat verbatim):
@@ -90,6 +90,14 @@ app.post('/api/chat', async (req, res) => {
     // Take only first 1-3 sentences
     const sentences = botMessage.match(/[^.!?]+[.!?]+/g) || [botMessage];
     botMessage = sentences.slice(0, 3).join(' ').trim();
+    
+    // Strip wrapping quotes some models like to add
+    if (
+      (botMessage.startsWith('"') && botMessage.endsWith('"')) ||
+      (botMessage.startsWith('“') && botMessage.endsWith('”'))
+    ) {
+      botMessage = botMessage.slice(1, -1).trim();
+    }
     
     // Fallback if still too long
     if (botMessage.length > 250) {

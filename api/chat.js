@@ -107,6 +107,14 @@ export default async function handler(req, res) {
     const sentences = botMessage.match(/[^.!?]+[.!?]+/g) || [botMessage];
     botMessage = sentences.slice(0, 3).join(' ').trim();
     
+    // Strip wrapping quotes some models like to add
+    if (
+      (botMessage.startsWith('"') && botMessage.endsWith('"')) ||
+      (botMessage.startsWith('“') && botMessage.endsWith('”'))
+    ) {
+      botMessage = botMessage.slice(1, -1).trim();
+    }
+    
     // Fallback if still too long
     if (botMessage.length > 250) {
       botMessage = botMessage.substring(0, 247) + '...';
