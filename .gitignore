@@ -27,3 +27,4 @@ hello.pub
 *.pem
 *.key
 
+.vercel

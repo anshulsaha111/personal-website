@@ -21,11 +21,11 @@ class ChatWidget {
     
     // Fallback responses for offline mode
     this.fallbackResponses = {
-      default: "i'm currently offline (network issue), but i can tell you that i love building ai products, scaling data systems, and solving complex problems at licious!",
-      skills: "i work with python, sql, machine learning, and product strategy. i love bridging the gap between tech and business.",
-      work: "i'm an ai/ml product manager at licious, building nl-to-sql tools and optimization algos.",
-      project: "i'm building cool ml tools to scale decision making. check out my github!",
-      fun: "i love gaming, sci-fi, and tinkering with new tech (like this website!)"
+      default: "i'm currently offline (network issue), but i'm still an ai/ml pm who loves turning messy data into simple, sharp decisions.",
+      skills: "i play at the intersection of python, sql, ml, and genai, plus all the pm toys like prds, experiments, and metrics.",
+      work: "i lead ai/ml products like an nl-to-sql analytics copilot and a vendor bidding bot – right now i do that at licious.",
+      project: "favorites: an nl-to-sql engine used by 100+ analysts and a patent-pending routing system that quietly optimizes deliveries.",
+      fun: "off-duty i binge sci-fi, tinker with side projects, and generally treat the internet as my playground."
     };
 
     this.init();
