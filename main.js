@@ -3,24 +3,73 @@ import * as THREE from "https://cdn.jsdelivr.net/npm/three@0.160.0/build/three.m
 import { GLTFLoader } from "https://cdn.jsdelivr.net/npm/three@0.160.0/examples/jsm/loaders/GLTFLoader.js";
 import { OrbitControls } from "https://cdn.jsdelivr.net/npm/three@0.160.0/examples/jsm/controls/OrbitControls.js";
 
+// === Boot Sequence ===
+const bootLines = [
+  "INITIALIZING SYSTEM...",
+  "LOADING CORE MODULES...",
+  "CONNECTING TO NEURAL LINK...",
+  "DECRYPTING GENETIC DATA...",
+  "RENDERING DIGITAL AVATAR...",
+  "SYSTEM ONLINE."
+];
+
+const bootContainer = document.getElementById('boot-sequence');
+const headerContainer = document.querySelector('.header-container');
+const footer = document.querySelector('footer');
+const modelCanvas = document.getElementById('model');
+
+async function runBootSequence() {
+  for (let i = 0; i < bootLines.length; i++) {
+    const line = document.createElement('div');
+    line.className = 'boot-line';
+    line.textContent = `> ${bootLines[i]}`;
+    
+    // Randomly assign status class
+    if (i < bootLines.length - 1) {
+      line.classList.add('success');
+    }
+    
+    bootContainer.appendChild(line);
+    
+    // Random delay
+    await new Promise(r => setTimeout(r, Math.random() * 300 + 100));
+  }
+  
+  // Fade out boot sequence
+  setTimeout(() => {
+    bootContainer.style.opacity = '0';
+    
+    // Fade in content
+    setTimeout(() => {
+      bootContainer.style.display = 'none';
+      headerContainer.classList.add('visible');
+      footer.classList.add('visible');
+      modelCanvas.classList.add('visible');
+      
+      // Start typewriter
+      typeWriter();
+    }, 500);
+  }, 800);
+}
+
+// Start boot sequence
+runBootSequence();
+
 // === Typewriter effect ===
-const typeText = "hi! i'm anshul";
+const typeText = "ANSHUL SAHAI";
 const typeTarget = document.querySelector("header");
 let i = 0;
+
 function typeWriter() {
   if (i < typeText.length) {
     typeTarget.textContent += typeText.charAt(i);
     i++;
     setTimeout(typeWriter, 100);
   } else {
-    setTimeout(() => {
-      typeTarget.textContent = "";
-      i = 0;
-      typeWriter();
-    }, 2500);
+    // Add glitch class after typing
+    typeTarget.classList.add('glitch-text');
   }
 }
-typeWriter();
 
 // === Scene setup ===
 const scene = new THREE.Scene();
@@ -240,7 +289,7 @@ function onMouseMove(event) {
     
     if (orb.userData.name) {
       hoveredOrb = orb;
-      document.body.style.cursor = 'pointer';
+      // document.body.style.cursor = 'pointer'; // Handled by CSS now
       
       // Show label
       orbLabel.textContent = orb.userData.name;
@@ -256,7 +305,7 @@ function onMouseMove(event) {
       hoveredOrb.scale.set(1, 1, 1);
       hoveredOrb = null;
     }
-    document.body.style.cursor = 'default';
+    // document.body.style.cursor = 'default'; // Handled by CSS
     orbLabel.classList.remove('visible');
   }
 }

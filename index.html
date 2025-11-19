@@ -3,11 +3,10 @@
   <head>
     <meta charset="UTF-8" />
     <meta name="viewport" content="width=device-width, initial-scale=1.0" />
-    <title>anshulsahai</title>
-    <link
-      href="https://fonts.googleapis.com/css2?family=Share+Tech+Mono&display=swap"
-      rel="stylesheet"
-    />
+    <title>ANSHUL // SYSTEM_ONLINE</title>
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link href="https://fonts.googleapis.com/css2?family=Share+Tech+Mono&family=Orbitron:wght@400;500;600;700&family=Rajdhani:wght@300;400;500;600&display=swap" rel="stylesheet">
     <link rel="stylesheet" href="style.css" />
     <link rel="icon" href="data:," />
     
@@ -23,10 +22,12 @@
   </head>
 
   <body>
+    <div class="scanlines"></div>
+    <div class="boot-sequence" id="boot-sequence"></div>
     <canvas id="bg"></canvas>
 
     <div class="header-container">
-      <header id="typewriter"></header>
+      <header id="typewriter" class="glitch-text" data-text="ANSHUL SAHAI"></header>
       <div class="subtitle">
         <p>hover over the glowing orbs</p>
         <p>to discover the dna</p>
@@ -70,5 +71,11 @@
     <!-- Chat Widget -->
     <link rel="stylesheet" href="chat-widget.css?v=1731449481" />
     <script src="chat-widget.js?v=1731449481"></script>
+
+    <!-- Vercel Analytics -->
+    <script>
+      window.va = window.va || function () { (window.vaq = window.vaq || []).push(arguments); };
+    </script>
+    <script defer src="/_vercel/insights/script.js"></script>
   </body>
 </html>

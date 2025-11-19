@@ -31,7 +31,7 @@ Get your **FREE** API key from: https://console.groq.com/keys
 npm start
 ```
 
-The server will run on `http://localhost:3001`
+The server will run on `http://localhost:5555`
 
 ### 4. Open Your Portfolio
 

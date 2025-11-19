@@ -19,6 +19,15 @@ class ChatWidget {
       "What do you do for fun?",
     ];
     
+    // Fallback responses for offline mode
+    this.fallbackResponses = {
+      default: "i'm currently offline (network issue), but i can tell you that i love building ai products, scaling data systems, and solving complex problems at licious!",
+      skills: "i work with python, sql, machine learning, and product strategy. i love bridging the gap between tech and business.",
+      work: "i'm an ai/ml product manager at licious, building nl-to-sql tools and optimization algos.",
+      project: "i'm building cool ml tools to scale decision making. check out my github!",
+      fun: "i love gaming, sci-fi, and tinkering with new tech (like this website!)"
+    };
+
     this.init();
   }
 
@@ -135,7 +144,7 @@ class ChatWidget {
     try {
       // Determine API endpoint (works locally and on Vercel)
       const isLocalhost = window.location.hostname === 'localhost' || window.location.hostname === '127.0.0.1';
-      const apiEndpoint = isLocalhost ? 'http://localhost:3001/api/chat' : '/api/chat';
+      const apiEndpoint = isLocalhost ? 'http://localhost:5555/api/chat' : '/api/chat';
       
       console.log('🔍 Chat Debug:', {
         hostname: window.location.hostname,
@@ -166,9 +175,25 @@ class ChatWidget {
     } catch (error) {
       console.error('Chat error:', error);
       this.hideTypingIndicator();
+      
+      // Fallback logic
+      let fallbackText = this.fallbackResponses.default;
+      const lowerMsg = message.toLowerCase();
+      
+      if (lowerMsg.includes('skill') || lowerMsg.includes('stack') || lowerMsg.includes('tech')) {
+        fallbackText = this.fallbackResponses.skills;
+      } else if (lowerMsg.includes('work') || lowerMsg.includes('job') || lowerMsg.includes('company')) {
+        fallbackText = this.fallbackResponses.work;
+      } else if (lowerMsg.includes('project') || lowerMsg.includes('build')) {
+        fallbackText = this.fallbackResponses.project;
+      } else if (lowerMsg.includes('fun') || lowerMsg.includes('hobby')) {
+        fallbackText = this.fallbackResponses.fun;
+      }
+
       this.addMessage(
-        "Oops! Looks like I'm having trouble connecting. Make sure the chat server is running (npm start) or reach out to me on LinkedIn!",
-        'bot'
+        fallbackText + " (connection lost, using backup memory bank)",
+        'bot',
+        true
       );
     }
   }
@@ -248,4 +273,3 @@ if (document.readyState === 'loading') {
 } else {
   new ChatWidget();
 }
-
