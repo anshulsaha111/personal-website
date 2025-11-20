@@ -24,25 +24,23 @@
   <body>
     <div class="scanlines"></div>
     <div class="boot-sequence" id="boot-sequence"></div>
+    <canvas id="bg"></canvas>
 
-    <div class="hero">
-      <div class="hero-header">
-        <div class="header-container">
-          <header id="typewriter" class="glitch-text" data-text="ANSHUL SAHAI"></header>
-          <div class="subtitle">
-            <p>hover over the glowing orbs</p>
-            <p>to discover the dna</p>
-            <p>of this being</p>
-          </div>
-        </div>
-      </div>
-
-      <div class="hero-scene">
-        <canvas id="bg"></canvas>
-        <canvas id="model"></canvas>
-        <div id="orb-label" class="orb-label"></div>
+    <div class="header-container">
+      <header id="typewriter" class="glitch-text" data-text="ANSHUL SAHAI"></header>
+      <div class="subtitle">
+        <p>hover over the glowing orbs</p>
+        <p>to discover the dna</p>
+        <p>of this being</p>
       </div>
     </div>
+
+    <main>
+      <canvas id="model"></canvas>
+
+      <!-- Orb labels that appear on hover -->
+      <div id="orb-label" class="orb-label"></div>
+    </main>
 
     <footer>
       contact me:
